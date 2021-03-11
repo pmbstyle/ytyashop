@@ -1,4 +1,4 @@
-#app header {
+#app > header {
     height:390px;
     width:100%;
     position: relative;
@@ -11,12 +11,60 @@
         z-index: 2;
         width:100%;
         height:100%;
-        @include flex-column(flex-end,flex-start);
+        @include flex-column(flex-start,flex-start);
+        .top-bar {
+            width:100%;
+            height:80px;
+            .wrapper {
+                width:100%;
+                @include flex-row(space-between,center);
+                padding-top:20px;
+                .language {
+                    background: rgba(0, 0, 0, 0.2);
+                    box-shadow: 0 3px 6px -1px rgba(0,0,0,.065);
+                    padding: 10px 15px;
+                    font-size: 13px;
+                    color: #fff;
+                    border-radius: 6px;
+                    @include flex-row(flex-start,center);
+                    span {
+                        padding:0 5px;
+                        cursor:default;
+                    }
+                    .langs {
+                        font-weight: 700;
+                        cursor:pointer;
+                        &:hover {
+                            color:#f36e00;
+                        }
+                    }
+                }
+                .cart {
+                    background: rgba(0, 0, 0, 0.2);
+                    box-shadow: 0 3px 6px -1px rgba(0,0,0,.065);
+                    padding: 10px 15px;
+                    font-size: 13px;
+                    color: #fff;
+                    border-radius: 6px;
+                    @include flex-row(flex-start,center);
+                    font-weight: 700;
+                    cursor:pointer;
+                    &:hover {
+                        background:#fff;
+                        color:#f36e00;
+                    }
+                    i {
+                        margin-left:10px;
+                    }
+                }
+            }
+        }
         .bar {
             width:100%;
             height:80px;
-            background:url(../header-bar-bg.png) no-repeat center center;
+            background:url(../images/header-bar-bg.png) no-repeat center center;
             border-top:rgba(255,255,255,.08) 1px solid;
+            margin-top:auto;
             .wrapper {
                 @include flex-row(center, center);
                 height:80px;
@@ -32,7 +80,7 @@
                         left:0;
                         width:300px;
                         height:300px;
-                        background: url(../logo.png) no-repeat 0 0;
+                        background: url(../images/logo.png) no-repeat 0 0;
                     }
                 }
                 .discord-wrap, .stats-wrap {
@@ -80,7 +128,7 @@
         z-index:1;
         width:100%;
         height:100%;
-        background:url(../bg.jpg) no-repeat 50% 30%;
+        background:url(../images/bg.jpg) no-repeat 50% 30%;
         background-size: cover;
         filter: blur(4px);
         -webkit-filter: blur(4px);
@@ -124,7 +172,7 @@
             width: 80px;
             height: 80px;
             animation-delay: 0s;
-            background:url(../obsidian-block.png) no-repeat center;
+            background:url(../images/obsidian-block.png) no-repeat center;
             background-size:cover;
         }
         
@@ -135,7 +183,7 @@
             height: 20px;
             animation-delay: 2s;
             animation-duration: 12s;
-            background:url(../diamond-ore-block.png) no-repeat center;
+            background:url(../images/diamond-ore-block.png) no-repeat center;
             background-size:cover;
         }
         
@@ -144,7 +192,7 @@
             width: 20px;
             height: 20px;
             animation-delay: 4s;
-            background:url(../tnt-block.png) no-repeat center;
+            background:url(../images/tnt-block.png) no-repeat center;
             background-size:cover;
         }
         
@@ -154,7 +202,7 @@
             height: 60px;
             animation-delay: 0s;
             animation-duration: 18s;
-            background:url(../melon-block.png) no-repeat center;
+            background:url(../images/melon-block.png) no-repeat center;
             background-size:cover;
         }
         
@@ -163,7 +211,7 @@
             width: 20px;
             height: 20px;
             animation-delay: 0s;
-            background:url(../grass-block.png) no-repeat center;
+            background:url(../images/grass-block.png) no-repeat center;
             background-size:cover;
         }
         
@@ -172,7 +220,7 @@
             width: 110px;
             height: 110px;
             animation-delay: 3s;
-            background:url(../spawner-block.png) no-repeat center;
+            background:url(../images/spawner-block.png) no-repeat center;
             background-size:cover;
         }
         
@@ -181,7 +229,7 @@
             width: 150px;
             height: 150px;
             animation-delay: 7s;
-            background:url(../grass-block.png) no-repeat center;
+            background:url(../images/grass-block.png) no-repeat center;
             background-size:cover;
         }
         
@@ -191,7 +239,7 @@
             height: 25px;
             animation-delay: 15s;
             animation-duration: 45s;
-            background:url(../light-block.png) no-repeat center;
+            background:url(../images/light-block.png) no-repeat center;
             background-size:cover;
         }
         
@@ -201,7 +249,7 @@
             height: 15px;
             animation-delay: 2s;
             animation-duration: 35s;
-            background:url(../spawner-block.png) no-repeat center;
+            background:url(../images/spawner-block.png) no-repeat center;
             background-size:cover;
         }
         
@@ -211,7 +259,7 @@
             height: 150px;
             animation-delay: 0s;
             animation-duration: 11s;
-            background:url(../bookshelf-block.png) no-repeat center;
+            background:url(../images/bookshelf-block.png) no-repeat center;
             background-size:cover;
         }
     }

@@ -1,0 +1,26 @@
+#app > footer {
+    min-height:300px;
+    margin-top:30px;
+    background: #14161c;
+    border-top: 2px solid #1a1b21;
+    width:100%;
+    @include flex-column(flex-start,flex-start);
+    & > .wrapper {
+        flex:1;
+        width:100%;
+    }
+    .copyright {
+        background: #12141a;
+        padding: 20px 0;
+        font-size: 12px;
+        border-top: 2px solid #161922;
+        color: rgba(0,0,0,.4);
+        width:100%;
+        .wrapper {
+            @include flex-row(flex-start,center);
+            width:100%;
+            color:#fff;
+            font-weight: 700;
+        }
+    }
+}

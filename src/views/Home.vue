@@ -1,32 +1,19 @@
 <template>
 	<section class="home">
 		<div class="wrapper">
-			<div class="card mb-20">
-				<div class="text-center pb-10"><strong><span class="color-orange">Добро пожаловать</span> в наш магазин.</strong></div>
-				<div style="padding:0 150px;" class="text-center">
-					<strong>ytya<span class="color-orange">Ru</span></strong> - комплекс серверов выживания, где каждый найдет для себя тот самый идеальный сервер.
-					Все вырученные средства идут на поддержку и развитие проекта.
-				</div>
-				<div class="text-center pt-10">Спасибо за ваш вклад!</div>
+			<div class="card mb-30">
+				<div class="text-center pb-10"><strong v-html="$ml.get('welcome')"></strong></div>
+				<div style="padding:0 150px;" class="text-center" v-html="$ml.get('welcome2')"></div>
+				<div class="text-center pt-10" v-html="$ml.get('welcome3')"></div>
 			</div>
-			<div class="card mb-20">
+			<div class="card mb-30">
 				<div class="on-horse"></div>
 				<div class="give_five"></div>
-				<h1 class="text-center pb-20">Выберите <span>сервер</span></h1>
+				<h1 class="text-center pb-20" v-html="$ml.get('chooseServer')"></h1>
 				<div class="server-list">
-					<div class="server">
-						<div class="image" style="background-image:url(https://files.hotmc.ru/upload/tt/doocctmegup2v44v7fiu4augyy2bcpugye9lh0g7fra1j1oon3kosgchn7hezur6.png?1601470726)">
-							<div class="title">Vanilla</div>
-						</div>
-					</div>
-					<div class="server">
-						<div class="image" style="background-image:url(http://cdn.minecraftrating.ru/storage/servers/94615/7839556cb2179cc_big.png)">
-							<div class="title">Classic</div>
-						</div>
-					</div>
-					<div class="server">
-						<div class="image" style="background-image:url(http://cdn.minecraftrating.ru/storage/servers/94615/83ce5c1b6568af0_big.png)">
-							<div class="title">Peaceful</div>
+					<div class="server" v-for="shop in shops" :key="shop.id" @click="$router.push({name:'Shop',params:{slug:shop.slug}})">
+						<div class="image" v-bind:style="{ 'background-image': 'url('+domain+'/images/'+shop.image + ')' }">
+							<div class="title">{{shop.name}}</div>
 						</div>
 					</div>
 				</div>
@@ -36,15 +23,27 @@
 </template>
 
 <script>
-
+import {mapGetters,mapActions} from 'vuex'
+//import { MLBuilder } from 'vue-multilanguage'
 export default {
 	name: 'Home',
-	components: {
+	computed: {
+		...mapGetters(['shops']),
+		domain: function() {
+			return process.env.VUE_APP_API_GATE
+		}
 	},
 	data: function(){
 		return {
-			active: 0
+			loading:true
 		}
+	},
+	mounted: async function() {
+		await this.getShops()
+		this.loading = false
+	},
+	methods: {
+		...mapActions(['getShops']),
 	}
 }
 </script>
