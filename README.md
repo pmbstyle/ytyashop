@@ -1,4 +1,5 @@
 # ytyashop
+Vue powered shop app for minecraft server. 
 
 ## Project setup
 ```
