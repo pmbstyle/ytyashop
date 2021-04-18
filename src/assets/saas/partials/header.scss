@@ -3,7 +3,7 @@
     width:100%;
     position: relative;
     overflow: hidden;
-    background:#222131;
+    background:#59585c;
     .header-content {
         position:absolute;
         top:0;
@@ -17,7 +17,7 @@
             height:80px;
             .wrapper {
                 width:100%;
-                @include flex-row(space-between,center);
+                @include flex-row(flex-end,center);
                 padding-top:20px;
                 .language {
                     background: rgba(0, 0, 0, 0.2);

@@ -1,7 +1,11 @@
 <template>
-    <footer>
+     <footer>
         <div class="wrapper">
-
+            <div class="footer-grid">
+                <div>1</div>
+                <div>2</div>
+                <div>3</div>
+            </div>
         </div>
         <div class="copyright">
             <div class="wrapper">

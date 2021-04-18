@@ -3,7 +3,9 @@ import './assets/saas/app.scss'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import './ml'
+
+import Notifications from 'vue-notification'
+Vue.use(Notifications)
 
 Vue.config.productionTip = false
 

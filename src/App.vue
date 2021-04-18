@@ -1,5 +1,6 @@
 <template>
 <div id="app">
+	<notifications position="top left"/>
 	<app-head/>
 	<main>
 		<router-view/>
@@ -14,12 +15,7 @@ import axios from 'axios'
 import VueAxios from 'vue-axios'
 import appHead from '@/components/header'
 import appFoot from '@/components/footer'
-import Vuesax from 'vuesax'
-import 'vuesax/dist/vuesax.css'
 Vue.use(VueAxios, axios)
-Vue.use(Vuesax, {
-	// options here
-})
 export default {
 	name:'App',
 	components: {

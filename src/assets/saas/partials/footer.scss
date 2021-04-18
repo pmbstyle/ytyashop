@@ -1,6 +1,6 @@
 #app > footer {
     min-height:300px;
-    margin-top:30px;
+    margin-top:80px;
     background: #14161c;
     border-top: 2px solid #1a1b21;
     width:100%;
@@ -22,5 +22,11 @@
             color:#fff;
             font-weight: 700;
         }
+    }
+    .footer-grid {
+        display:grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-column-gap: 20px;
+        padding:30px 0;
     }
 }

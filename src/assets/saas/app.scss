@@ -3,7 +3,10 @@
 @import 'typography';
 @import 'partials/header';
 @import 'partials/footer';
+@import 'partials/sidebar';
 @import 'partials/home';
+@import 'partials/shop';
+@import 'partials/product';
 
 
 body {
@@ -32,7 +35,7 @@ main {
     border-radius: 6px;
     -webkit-box-shadow: 0 4px 7px -2px rgba(0,0,0,.2);
     box-shadow: 0 4px 7px -2px rgba(0,0,0,.2);
-    padding:20px;
+    padding:30px;
     position: relative;
 }
 
@@ -61,3 +64,15 @@ main {
 .pl-30 {padding-left:30px;}
 .pr-30 {padding-right:30px;}
 .pb-30 {padding-bottom:30px;}
+.pt-40 {padding-top:40px;}
+.pl-40 {padding-left:40px;}
+.pr-40 {padding-right:40px;}
+.pb-40 {padding-bottom:40px;}
+
+.notification__item--warning {
+    background-color: #f36e00 !important;
+    border-left: 8px solid #c15801 !important;
+    .notification__timer {
+        background-color: #c15801 !important;
+    }
+}

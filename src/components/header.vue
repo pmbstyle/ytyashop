@@ -18,14 +18,8 @@
 		<div class="header-content">
 			<div class="top-bar">
 				<div class="wrapper">
-					<div class="language">
-						<span v-text="$ml.get('language')"></span>
-						<span class="langs" @click="$ml.change('russian')">Русский</span>
-						<span>|</span>
-						<span class="langs" @click="$ml.change('english')">English</span>
-					</div>
 					<div class="cart">
-						<div class="cart-left" v-text="$ml.with(0).get('cart')"></div>
+						<div class="cart-left">Корзина (0)</div>
 						<i class="mdi mdi-cart"></i>
 					</div>
 				</div>
@@ -33,10 +27,12 @@
 			</div>
 			<div class="bar">
 				<div class="wrapper">
-					<div class="stats-wrap">
+					<div class="stats-wrap"
+							v-clipboard="ip"
+							v-clipboard:success="copied">
 						<div class="content">
 							<div class="title">mc.ytya.ru</div>
-							<div class="subtitle" v-text="$ml.with(online).get('serverOnline')"></div>
+							<div class="subtitle">{{serverOnline}} игроков онлайн</div>
 						</div>
 						<div class="mdi mdi-minecraft"></div>
 					</div>
@@ -46,8 +42,8 @@
 					<div class="discord-wrap">
 						<div class="mdi mdi-discord"></div>
 						<div class="content">
-							<div class="title" v-text="$ml.get('discord')"></div>
-							<div class="subtitle" v-text="$ml.with(discord).get('discordOnline')"></div>
+							<div class="title">Наш Discord</div>
+							<div class="subtitle">Присоединяйся!</div>
 						</div>
 					</div>
 				</div>
@@ -57,16 +53,35 @@
 </template>
 
 <script>
+import {mapGetters,mapActions} from 'vuex'
+import Vue from 'vue'
+import Clipboard from 'v-clipboard'
 
+Vue.use(Clipboard)
 export default {
 	name: 'header',
 	data: function(){
 		return {
-			online:87,
-			discord:583
+			ip:'mc.ytya.ru'
 		}
 	},
+	computed: {
+		...mapGetters(['serverOnline'])
+	},
 	mounted: function() {
+		this.getServerOnline('TEST')
+	},
+	methods: {
+		...mapActions(['getServerOnline']),
+		copied: function() {
+			this.$notify({
+				title: 'IP скопирован',
+				text: 'Мы скопировали IP сервера для вас.',
+				type: 'success',
+				duration: 5000,
+				speed: 1000
+			})
+		}
 	}
 }
 </script>
