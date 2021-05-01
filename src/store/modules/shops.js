@@ -6,6 +6,9 @@ Vue.use(VueAxios, axios)
 export default ({
 	state: {
 		shops:[],
+		shop:{},
+		categories:[],
+		activeCategory:0
 	},
 	actions: {
 		getShops: async function({commit}){
@@ -14,16 +17,45 @@ export default ({
 				return response.json()
 			})
 			commit('setShops',shops)
-		}
+		},
+		getShop: async function({commit},slug){
+			let shop = await fetch(process.env.VUE_APP_API_GATE+'/api/shop/'+slug)
+			.then(response => {
+				return response.json()
+			})
+			let categories = shop[0].categories
+			categories.unshift({id:0, name:'Все'})
+			commit('setShop',shop[0])
+			commit('setCategories',categories)
+			commit('setActiveCategory',categories[0].id)
+		},
 	},
 	mutations: {
 		setShops(state,shops) {
 			state.shops = shops
+		},
+		setShop(state,shop) {
+			state.shop = shop
+		},
+		setCategories(state,categories) {
+			state.categories = categories
+		},
+		setActiveCategory(state,id) {
+			state.activeCategory = id
 		}
 	},
 	getters:{
 		shops(state) {
 			return state.shops
+		},
+		shop(state) {
+			return state.shop
+		},
+		categories(state) {
+			return state.categories
+		},
+		activeCategory(state) {
+			return state.activeCategory
 		}
 	}
 })

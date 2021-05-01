@@ -17,7 +17,7 @@
 				<div class="give_five"></div>
 				<h1 class="text-center pb-20">Выберите <span>сервер</span></h1>
 				<div class="server-list">
-					<div class="server" v-for="shop in shops" :key="shop.id" @click="$router.push({name:'Shop',params:{slug:shop.slug}})">
+					<div class="server" v-for="shop in shops" :key="shop.id" @click="$router.push({name:'Server',params:{slug:shop.slug}})">
 						<div class="image" v-bind:style="{ 'background-image': 'url('+domain+'/images/'+shop.image + ')' }">
 							<div class="title">{{shop.name}}</div>
 						</div>
