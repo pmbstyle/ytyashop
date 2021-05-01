@@ -19,7 +19,7 @@
 			<div class="top-bar">
 				<div class="wrapper">
 					<div class="cart">
-						<div class="cart-left">Корзина (0)</div>
+						<div class="cart-left">Корзина ({{cart.length}})</div>
 						<i class="mdi mdi-cart"></i>
 					</div>
 				</div>
@@ -66,7 +66,7 @@ export default {
 		}
 	},
 	computed: {
-		...mapGetters(['serverOnline'])
+		...mapGetters(['serverOnline','cart'])
 	},
 	mounted: function() {
 		this.getServerOnline('TEST')

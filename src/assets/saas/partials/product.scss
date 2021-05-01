@@ -35,6 +35,64 @@
         .options {
             text-align:right;
         }
+        .action-buttons {
+            @include flex-row(flex-start,center);
+        }
+        .quantity {
+            @include flex-row(flex-start,flex-start);
+            width:122px;
+            height:42px;
+            border-radius: 6px;
+            background: #191b21;
+            margin-right:10px;
+            .minus {
+                width:32px;
+                height:42px;
+                @include flex-row(center,center);
+                border-right:rgba(255,255,255,.08) 1px solid;
+                border-top-left-radius: 6px;
+                border-bottom-left-radius: 6px;
+                cursor:pointer;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                &:hover {
+                    background:#d06207;
+                }
+            }
+            .plus {
+                width:32px;
+                height:42px;
+                @include flex-row(center,center);
+                border-left:rgba(255,255,255,.08) 1px solid;
+                border-top-right-radius: 6px;
+                border-bottom-right-radius: 6px;
+                cursor:pointer;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+                &:hover {
+                    background:#d06207;
+                }
+            }
+            .input {
+                @include flex-row(center,center);
+                height:42px;
+                flex:1;
+                -webkit-touch-callout: none;
+                -webkit-user-select: none;
+                -khtml-user-select: none;
+                -moz-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
+            }
+        }
     }
     .features-list {
         margin-top:0;

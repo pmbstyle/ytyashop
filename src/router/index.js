@@ -13,6 +13,11 @@ const routes = [
     path: '/server/:slug',
     name: 'Server',
     component: () => import('../views/Server.vue')
+  },
+  {
+    path: '/server/:slug/product/:id',
+    name: 'Product',
+    component: () => import('../views/Product.vue')
   }
 ]
 

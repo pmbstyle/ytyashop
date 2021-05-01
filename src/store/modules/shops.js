@@ -8,7 +8,8 @@ export default ({
 		shops:[],
 		shop:{},
 		categories:[],
-		activeCategory:0
+		activeCategory:0,
+		product:{}
 	},
 	actions: {
 		getShops: async function({commit}){
@@ -29,6 +30,13 @@ export default ({
 			commit('setCategories',categories)
 			commit('setActiveCategory',categories[0].id)
 		},
+		getProduct: async function({commit},id) {
+			let product = await fetch(process.env.VUE_APP_API_GATE+'/api/product/'+id)
+			.then(response => {
+				return response.json()
+			})
+			commit('setProduct',product[0])
+		}
 	},
 	mutations: {
 		setShops(state,shops) {
@@ -42,7 +50,10 @@ export default ({
 		},
 		setActiveCategory(state,id) {
 			state.activeCategory = id
-		}
+		},
+		setProduct(state,product) {
+			state.product = product
+		},
 	},
 	getters:{
 		shops(state) {
@@ -56,6 +67,9 @@ export default ({
 		},
 		activeCategory(state) {
 			return state.activeCategory
+		},
+		product(state) {
+			return state.product
 		}
 	}
 })

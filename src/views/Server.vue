@@ -17,7 +17,7 @@
                         <div class="product"
 							v-for="product in categoryProducts"
 							:key="product.id"
-							@click="$route.push({name:'Product', params:{slug:shop.id,id:product.id}})">
+							@click="$router.push({name:'Product', params:{slug:shop.slug,id:product.id}})">
 							<div class="image" 
 								:style="{backgroundImage: 'url('+domain+'/images/'+product.image+')'}">
 								<div class="desc">
