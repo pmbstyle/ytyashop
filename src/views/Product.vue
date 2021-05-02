@@ -21,7 +21,7 @@
                                 <button class="button-orange" @click="toCart()">Купить</button>
                             </div>
                         </div>
-                        <div class="options">
+                        <div class="options" v-if="product.features.length > 0">
                             <span class="clickable">Добавить к сравнению</span>
                         </div>
                     </div>
@@ -39,6 +39,30 @@
             </main>
             
         </div>
+        <modal name="addToCart" :height="370">
+            <div class="modal-title">
+                <span class="title">Корзина обновлена</span>
+                <span class="close-modal" @click="closeModal()">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path fill-rule="evenodd" clip-rule="evenodd" d="M6.99173 5.27305L11.9503 0.313965L13.6696 2.04969L8.72689 6.99183L13.6696 11.9503L11.9503 13.6697L6.99173 8.72698L2.04959 13.6697L0.313873 11.9503L5.27295 6.99183L0.313873 2.04969L2.04959 0.313965L6.99173 5.27305Z" fill="#363636"/>
+                    </svg>
+                </span>
+            </div>
+            <div class="modal-content">
+                <div class="cart-modal-content">
+                    <div class="icon-cart"></div>
+                    <div class="message">
+                        <p class="mt-0">Следующие товары были добавлены в корзину:</p>
+                        <p><strong>Сервер {{product.shop.name}} - {{product.name}}</strong> x {{qty}}</p>
+                        <p class="mb-0">Хотите перейти к корзине или продолжить покупки?</p>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="mr-10" @click="closeModal()" >Продолжить покупки</button>
+                <button class="button-orange" @click="$router.push({name:'Cart'})" >Перейти в корзину</button>
+            </div>
+        </modal>
     </section>
 </template>
 
@@ -77,12 +101,17 @@ export default {
                 product:this.product,
                 qty:this.qty
             })
+            this.$modal.show('addToCart')
         },
         plus: function() {
             this.qty++
         },
         minus: function() {
             this.qty = this.qty > 1 ? this.qty-1 : this.qty
+        },
+        closeModal: function() {
+            this.$modal.hide('addToCart')
+            this.qty = 1
         }
 	}
 }
