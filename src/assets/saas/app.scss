@@ -7,6 +7,7 @@
 @import 'partials/home';
 @import 'partials/shop';
 @import 'partials/product';
+@import 'partials/cart';
 
 
 body {
@@ -37,6 +38,23 @@ main {
     box-shadow: 0 4px 7px -2px rgba(0,0,0,.2);
     padding:30px;
     position: relative;
+}
+
+.text-input {
+    border-radius: 6px;
+    background: #191b21;
+    border:0;
+    margin-right:10px;
+    color:#fff;
+    height:40px;
+    padding:0 10px;
+    text-align:center;
+    border:#191b21 1px solid;
+    transition: all .5s ease-in-out;
+    &:focus {
+        border:#c15801 1px solid;
+        outline: 0px;
+    }
 }
 
 .mt-10 {margin-top:10px;}

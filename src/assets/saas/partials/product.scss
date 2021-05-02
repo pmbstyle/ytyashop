@@ -59,6 +59,7 @@
                 -moz-user-select: none;
                 -ms-user-select: none;
                 user-select: none;
+                transition: all .5s ease-in-out;
                 &:hover {
                     background:#d06207;
                 }
@@ -77,6 +78,7 @@
                 -moz-user-select: none;
                 -ms-user-select: none;
                 user-select: none;
+                transition: all .5s ease-in-out;
                 &:hover {
                     background:#d06207;
                 }
@@ -101,48 +103,6 @@
             padding-bottom:5px;
         }
     }
-}
-.custom-template {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    text-align: left;
-    font-size: 13px;
-    margin: 5px;
-    margin-bottom: 0;
-    align-items: center;
-    justify-content: center;
-    &, & > div {
-        box-sizing: border-box;
-    }
-    background: #E8F9F0;
-    border: 2px solid #D0F2E1;
-.custom-template-icon {
-    flex: 0 1 auto;
-    color: #15C371;
-    font-size: 32px;
-    padding: 0 10px;
-}
-.custom-template-close {
-    flex: 0 1 auto;
-    padding: 0 20px;
-    font-size: 16px;
-    opacity: 0.2;
-    cursor: pointer;
-    &:hover {
-    opacity: 0.8;
-    }
-}
-.custom-template-content {
-    padding: 10px;
-    flex: 1 0 auto;
-    .custom-template-title {
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    font-size: 10px;
-    font-weight: 600;
-    }
-}
 }
 .v-fade-left-enter-active,
 .v-fade-left-leave-active,

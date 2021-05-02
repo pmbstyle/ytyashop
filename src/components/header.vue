@@ -18,7 +18,7 @@
 		<div class="header-content">
 			<div class="top-bar">
 				<div class="wrapper">
-					<div class="cart">
+					<div class="cart" @click="$router.push({name:'Cart'})">
 						<div class="cart-left">Корзина ({{cart.length}})</div>
 						<i class="mdi mdi-cart"></i>
 					</div>
@@ -37,7 +37,7 @@
 						<div class="mdi mdi-minecraft"></div>
 					</div>
 					<div class="logo-wrap">
-						<div class="logo"></div>
+						<div class="logo" @click="$router.push({name:'Home'})"></div>
 					</div>
 					<div class="discord-wrap">
 						<div class="mdi mdi-discord"></div>

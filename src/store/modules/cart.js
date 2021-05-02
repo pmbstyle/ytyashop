@@ -14,24 +14,15 @@ export default ({
 		addToCart(state,product) {
 			state.cart.push({product:product.product,qty:product.qty})
 		},
-        removeFromCart(state,product){
-            let i = 0
-            state.cart.map((c,index) => {
-                if(c.product.id == product) {
-                    i = index
-                }
-            })
+        removeFromCart(state,i){
             state.cart.splice(i,1)
         },
-        reduceQty(state,product) {
-            let i = 0
+        incruseQty(state,i) {
+            state.cart[i].qty = state.cart[i].qty + 1
+        },
+        reduceQty(state,i) {
             let remove = false
-            state.cart.map((c,index) => {
-                if(c.product.id == product) {
-                    remove = c.product.qty == 1 ? true : false
-                    i = index
-                }
-            })
+            remove = state.cart[i].qty == 1 ? true : false
             if(remove) {
                 state.cart.splice(i,1)
             } else {

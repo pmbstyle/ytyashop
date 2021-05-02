@@ -1,0 +1,132 @@
+section#cart {
+    padding-top:30px;
+    & > .wrapper {
+        @include flex-row(flex-start,flex-start);
+        main {
+            width:100%;
+            padding:0;
+        }
+    }
+    .cart-list {
+        .cart-product {
+            @include flex-row(flex-start,center);
+            padding:10px 0;
+            &:not(:last-child) {
+                border-bottom: 1px solid rgba(255,255,255,.05);
+            }
+            .image {
+                width:100px;
+                height:100px;
+                background-size:cover;
+                background-repeat:no-repeat;
+                background-position: center;
+                border-radius: 6px;
+            }
+            .name {
+                @include flex-column(flex-start,flex-start);
+                padding:0 20px;
+                flex:1;
+                p {
+                    font-weight:bold;
+                    margin:0;
+                    padding:0;
+                }
+                span {
+                    font-size:.8em;
+                    padding-top:5px;
+                }
+            }
+            .qty {
+                padding:0 10px;
+                width:122px;
+                text-align:center;
+            }
+            .quantity {
+                @include flex-row(flex-start,flex-start);
+                width:122px;
+                height:42px;
+                border-radius: 6px;
+                background: #191b21;
+                margin-right:10px;
+                .minus {
+                    width:32px;
+                    height:42px;
+                    @include flex-row(center,center);
+                    border-right:rgba(255,255,255,.08) 1px solid;
+                    border-top-left-radius: 6px;
+                    border-bottom-left-radius: 6px;
+                    cursor:pointer;
+                    -webkit-touch-callout: none;
+                    -webkit-user-select: none;
+                    -khtml-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    transition: all .5s ease-in-out;
+                    &:hover {
+                        background:#d06207;
+                    }
+                }
+                .plus {
+                    width:32px;
+                    height:42px;
+                    @include flex-row(center,center);
+                    border-left:rgba(255,255,255,.08) 1px solid;
+                    border-top-right-radius: 6px;
+                    border-bottom-right-radius: 6px;
+                    cursor:pointer;
+                    -webkit-touch-callout: none;
+                    -webkit-user-select: none;
+                    -khtml-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    transition: all .5s ease-in-out;
+                    &:hover {
+                        background:#d06207;
+                    }
+                }
+                .input {
+                    @include flex-row(center,center);
+                    height:42px;
+                    flex:1;
+                    -webkit-touch-callout: none;
+                    -webkit-user-select: none;
+                    -khtml-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                }
+            }
+            .price {
+                color:#d06207;
+                font-weight:bold;
+                width:122px;
+                text-align:center;
+            }
+            .action {
+                padding-left:20px;
+            }
+        }
+    }
+    .cart-total {
+        .player-details {
+            width:100%;
+            @include flex-row(flex-start,center);
+            padding-bottom:20px;
+            input {
+                width:200px;
+                text-align:left;
+            }
+        }
+        .total {
+            width:100%;
+            @include flex-row(space-between,center);
+            strong {
+                color:#d06207;
+                font-weight:bold;
+            }
+        }
+        
+    }
+}

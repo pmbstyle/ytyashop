@@ -53,7 +53,7 @@
                     <div class="icon-cart"></div>
                     <div class="message">
                         <p class="mt-0">Следующие товары были добавлены в корзину:</p>
-                        <p><strong>Сервер {{product.shop.name}} - {{product.name}}</strong> x {{qty}}</p>
+                        <p v-if="product.shop"><strong>Сервер {{product.shop.name}} - {{product.name}}</strong> x {{qty}}</p>
                         <p class="mb-0">Хотите перейти к корзине или продолжить покупки?</p>
                     </div>
                 </div>
