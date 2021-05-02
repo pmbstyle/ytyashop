@@ -2,9 +2,24 @@
      <footer>
         <div class="wrapper">
             <div class="footer-grid">
-                <div>1</div>
-                <div>2</div>
-                <div>3</div>
+                <div>
+                    <div class="footer-logo"></div>
+                    <p>Комплекс серверов выживания</p>
+                </div>
+                <div>
+                    <div class="title">Информация</div>
+                    <ul>
+                        <li><router-link :to="{name:'Terms'}">Соглашение о пожертвовании</router-link></li>
+                        <li><router-link :to="{name:'Steps'}">Порядок покупки</router-link></li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="title">Полезные ссылки</div>
+                    <ul>
+                        <li><a href="http://ds.ytya.ru" target="_blank">Наш Discord</a></li>
+                        <li><a href="https://vk.com/ytyacraftreborn" target="_blank">Наша группа во Vk</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <div class="copyright">
