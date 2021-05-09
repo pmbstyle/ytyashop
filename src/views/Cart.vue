@@ -64,7 +64,7 @@ export default {
         sidebar
     },
 	computed: {
-		...mapGetters(['cart']),
+		...mapGetters(['cart','purchase']),
 		domain: function() {
 			return process.env.VUE_APP_API_GATE
 		},
@@ -88,8 +88,12 @@ export default {
 		this.loading = false
 	},
 	methods: {
-		...mapActions([]),
+		...mapActions(['getPurchaseLink']),
 		...mapMutations(['incruseQty','reduceQty','removeFromCart']),
+        getPaymentLink: async function() {
+            await this.getPurchaseLink(this.playerName)
+            window.location.href = this.purchase;
+        }
 	}
 }
 </script>

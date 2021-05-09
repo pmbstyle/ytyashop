@@ -5,7 +5,6 @@ import router from './router'
 import store from './store'
 
 import VModal from 'vue-js-modal'
-import 'sweetalert2/dist/sweetalert2.min.css'
 import Notifications from 'vue-notification'
 Vue.use(Notifications)
 Vue.use(VModal)
